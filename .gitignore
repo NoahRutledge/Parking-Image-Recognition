@@ -1,2 +1,2 @@
 *.docx
-./ParkingApp/node_modules
+*node_modules/
