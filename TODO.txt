@@ -1,0 +1,1 @@
+The model isnt bad.  The algorithm is.  Either find a new algorithm (fast rcnn or whatever) or create the bounding boxes yourself, crop the image for each bounding box, load it into cv2, and send it to the mask rcnn model.  If it says there isnt anything there, then add one to a count.
