@@ -53,8 +53,8 @@ def detect_cars_image(bounds, ids, scores, img):
             count += 1
             y1, x1, y2, x2 = bound
             #print("%d,%d - %d,%d" %(x1,y1,x2,y2))
-            cv2.rectangle(img, (x1, y1), (x2, y2), (0,255,0), 1)
-            cv2.putText(img, str(scores[i]), (x1, y1), cv2.FONT_HERSHEY_PLAIN, 0.75, (0,0,255))
+            #cv2.rectangle(img, (x1, y1), (x2, y2), (0,255,0), 1)
+            #cv2.putText(img, str(scores[i]), (x1, y1), cv2.FONT_HERSHEY_PLAIN, 0.75, (0,0,255))
     return count
 
 def detect_image(path):
@@ -67,8 +67,6 @@ def detect_image(path):
     n = detect_cars_image(r['rois'], r['class_ids'], r['scores'], img)
     print("I see", n, "cars")
     return n
-    #img = cv2.resize(img, (1920,1080))
-    #cv2.imshow("img", img)
 
 def main():
     #if(len(sys.argv) != 3):
@@ -76,8 +74,8 @@ def main():
     
     #coordPath = sys.argv[1]
     #imagePath = sys.argv[2]
-    coordPath = 'coords.txt'
-    imagePath = 'Videos/Parking1.jpg'
+    coordPath = 'coords2.txt'
+    imagePath = 'Videos/Parking2.jpg'
     """
     TODO:
         Open file and loop through it taking 4 coords at a time putting it in a [][4]
@@ -97,15 +95,5 @@ def main():
             availableSpots += 1
 
     print("There are",availableSpots,"available spots open")
-    #Retreive screenshot
-    #identifier = 'movie_player'
-    #link = 'https://www.youtube.com/watch?v=PmrWwYTlAVQ&feature=player_embedded'
-    #get_screenshot(identifier, link)
-
-    #detect_image()
-
-    #cv2.waitKey(0)
-    #cv2.destroyAllWindows()
 
 main()
-#detect_image('Videos/Parking2Cut.jpg')
